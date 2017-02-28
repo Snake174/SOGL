@@ -1,0 +1,60 @@
+#include "vertex_buffer.h"
+#include <GL/glew.h>
+
+namespace SOGL
+{
+	VertexBuffer::VertexBuffer()
+	{
+		glCreateBuffers(1, &m_id);
+	}
+
+	VertexBuffer::~VertexBuffer()
+	{
+		glDeleteBuffers(1, &m_id);
+	}
+
+	VertexBuffer::VertexBuffer(VertexBuffer&& o)
+	{
+		m_id = o.m_id;
+		m_size = o.m_size;
+
+		o.m_id = o.m_size = 0;
+	}
+
+	void VertexBuffer::allocate(unsigned count, BufferUsage usage)
+	{
+		m_size = count;
+		glNamedBufferData(m_id, m_size, nullptr, remap(usage));
+	}
+
+	void VertexBuffer::allocate(const void * data, unsigned count, BufferUsage usage)
+	{
+		m_size = count;
+		glNamedBufferData(m_id, m_size, data, remap(usage));
+	}
+
+	void VertexBuffer::bind(BufferTarget target)
+	{
+		glBindBuffer(remap(target), m_id);
+	}
+
+	void VertexBuffer::unbind(BufferTarget target)
+	{
+		glBindBuffer(remap(target), 0);
+	}
+
+	unsigned VertexBuffer::size()
+	{
+		return m_size;
+	}
+
+	unsigned VertexBuffer::id()
+	{
+		return m_id;
+	}
+
+	VertexBuffer::operator unsigned()
+	{
+		return id();
+	}
+};
