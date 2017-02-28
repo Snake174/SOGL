@@ -20,5 +20,6 @@ namespace SOGL
 			default:
 				assert(false);
 		}
+		return 0; //to avoid stupid C4715 warning
 	}
 };
