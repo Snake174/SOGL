@@ -23,13 +23,10 @@ namespace SOGL
 
 		void unbind(BufferTarget target = BufferTarget::Array);
 
-		unsigned size();
-
 		unsigned id();
 
 		operator unsigned();
 	private:
 		unsigned m_id;
-		unsigned m_size = 0;
 	};
 };

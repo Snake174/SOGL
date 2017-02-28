@@ -16,21 +16,18 @@ namespace SOGL
 	VertexBuffer::VertexBuffer(VertexBuffer&& o)
 	{
 		m_id = o.m_id;
-		m_size = o.m_size;
 
-		o.m_id = o.m_size = 0;
+		o.m_id =  0;
 	}
 
 	void VertexBuffer::allocate(unsigned count, BufferUsage usage)
 	{
-		m_size = count;
-		glNamedBufferData(m_id, m_size, nullptr, remap(usage));
+		glNamedBufferData(m_id, count, nullptr, remap(usage));
 	}
 
 	void VertexBuffer::allocate(const void * data, unsigned count, BufferUsage usage)
 	{
-		m_size = count;
-		glNamedBufferData(m_id, m_size, data, remap(usage));
+		glNamedBufferData(m_id, count, data, remap(usage));
 	}
 
 	void VertexBuffer::bind(BufferTarget target)
@@ -41,11 +38,6 @@ namespace SOGL
 	void VertexBuffer::unbind(BufferTarget target)
 	{
 		glBindBuffer(remap(target), 0);
-	}
-
-	unsigned VertexBuffer::size()
-	{
-		return m_size;
 	}
 
 	unsigned VertexBuffer::id()
