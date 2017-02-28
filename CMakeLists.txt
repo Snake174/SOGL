@@ -5,6 +5,9 @@ macro ( mark_as_internal _var )
   set ( ${_var} ${${_var}} CACHE INTERNAL "hide this!" FORCE )
 endmacro( mark_as_internal _var ) 
 
+set(CMAKE_CXX_FLAGS_RELEASE "/MT" CACHE INTERNAL "" FORCE)
+set(CMAKE_CXX_FLAGS_DEBUG "/MTd" CACHE INTERNAL "" FORCE)
+
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
