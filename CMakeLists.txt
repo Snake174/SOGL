@@ -31,6 +31,7 @@ include_directories(lib/glew/include)
 static_compile(glew_s)
 
 include_directories(lib/stb)
+include_directories(src)
 
 mark_as_internal(GLEW_OSMESA)
 mark_as_internal(GLEW_REGAL)
@@ -40,7 +41,7 @@ mark_as_internal(GLFW_VULKAN_STATIC)
 
 
 file(GLOB_RECURSE SOURCE_LIST "src/*.cpp" "src/*.h")
-add_executable(SOGL ${SOURCE_LIST})
+add_library(SOGL ${SOURCE_LIST})
 
 find_package(OpenGL REQUIRED)
 target_link_libraries(SOGL glew_s glfw ${OPENGL_LIBRARIES})
