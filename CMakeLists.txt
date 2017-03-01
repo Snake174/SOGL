@@ -7,9 +7,15 @@ function(static_compile p)
     )
 endfunction()
 
+macro ( mark_as_internal _var )
+  set ( ${_var} ${${_var}} CACHE INTERNAL "hide this!" FORCE )
+endmacro( mark_as_internal _var ) 
+
 set(CMAKE_CXX_FLAGS_RELEASE "/MT -O2" CACHE INTERNAL "" FORCE)
 set(CMAKE_CXX_FLAGS_DEBUG "/MTd -O2" CACHE INTERNAL "" FORCE)
 
+set(BUILD_UTILS OFF CACHE INTERNAL "" FORCE)
+set(GLFW_INSTALL OFF CACHE INTERNAL "" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE INTERNAL "" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE INTERNAL "" FORCE)
@@ -23,6 +29,14 @@ static_compile(glfw)
 add_subdirectory(lib/glew/build/cmake EXCLUDE_FROM_ALL)
 include_directories(lib/glew/include)
 static_compile(glew_s)
+
+include_directories(lib/stb)
+
+mark_as_internal(GLEW_OSMESA)
+mark_as_internal(GLEW_REGAL)
+mark_as_internal(GLFW_DOCUMENT_INTERNALS)
+mark_as_internal(GLFW_USE_HYBRID_HPG)
+mark_as_internal(GLFW_VULKAN_STATIC)
 
 
 file(GLOB_RECURSE SOURCE_LIST "src/*.cpp" "src/*.h")

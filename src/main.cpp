@@ -51,52 +51,71 @@ void GLAPIENTRY glDebugOutput(GLenum source,
     std::cout << std::endl;
 }
 
-
 int main(void)
 {
-	SOGL::Context context;
+	SOGL::Context context(32, 8, 4, 4, 0);
 
 	glEnable(GL_DEBUG_OUTPUT); 
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS); 
     glDebugMessageCallback(glDebugOutput, nullptr);
     glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+	
+	SOGL::Texture tex("ses.png");
 
-	glfwSetWindowSize(context, 640, 480);
+	glfwSetWindowSize(context, 640, 640);
 	glfwShowWindow(context);
-	glViewport(0, 0, 640, 480);
+	glViewport(0, 0, 640, 640);
 
 	float verts[] =
 	{
-		-1, -1, 0,
-		 0,  1, 0,
-		 1, -1, 0,
+		-1,  1, 0, 0, 1,
+		 1,  1, 0, 1, 1,
+		 1, -1, 0, 1, 0,
+		-1, -1, 0, 0, 0
+	};
+
+	unsigned indices[] =
+	{
+		0, 1, 2, 0, 2, 3
 	};
 
 	SOGL::VertexBuffer vbo;
-	vbo.allocate(verts, 9 * sizeof(float));
+	vbo.allocate(verts, 20 * sizeof(float));
+
+	SOGL::VertexBuffer ebo;
+	ebo.allocate(indices, 6 * sizeof(unsigned));
 
 	SOGL::VertexArray vao;
-	vao.attach_attribute(0, 3 * sizeof(float), vbo, 3, 0);
+	vao.attach_attribute(0, 5 * sizeof(float), vbo, 3, 0);
+	vao.attach_attribute(1, 5 * sizeof(float), vbo, 2, 3 * sizeof(float));
+	vao.attach_ebo(ebo);
 
 	const char vert_src[] = GLSL
 	(
 		400,
 		layout(location = 0) in vec3 position;
+		layout(location = 1) in vec2 uv;
+
+		out vec2 v_uv;
 
 		void main()
 		{
 			gl_Position = vec4(position, 1);
+			v_uv = uv;
 		}
 	);
 	
 	const char frag_src[] = GLSL
 	(
 		400,
+		in vec2 v_uv;
 		out vec3 color;
+
+		layout(binding = 0) uniform sampler2D tex;
 
 		void main()
 		{
-			color = vec3(1, 0, 0);
+			color = texture(tex, v_uv).rgb;
 		}
 	);
 
@@ -109,13 +128,16 @@ int main(void)
 		prog.link();
 	}
 
+
 	while(!glfwWindowShouldClose(context))
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
-		vao.bind();
 		prog.bind();
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		vao.bind();
+		tex.bind(0);
+
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 		glfwPollEvents();
 		glfwSwapBuffers(context);
