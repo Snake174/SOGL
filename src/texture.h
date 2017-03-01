@@ -34,9 +34,10 @@ namespace SOGL
 		void bind(unsigned binding);
 
 		void unbind(unsigned binding);
-		//unsigned id();
+		
+		unsigned id();
 
-		//operator unsigned();
+		operator unsigned();
 	private:
 		unsigned m_id;
 		TextureTarget m_target;

@@ -4,6 +4,7 @@
 #include "shader.h"
 #include "shader_program.h"
 #include "texture.h"
+#include "framebuffer.h"
 #include "context.h"
 
 #define GLSL(version, shader)  "#version " #version "\n" #shader

@@ -76,7 +76,7 @@ namespace SOGL
 		glBindTexture(remap(m_target), 0);
 	}
 
-	/*unsigned Texture::id()
+	unsigned Texture::id()
 	{
 		return m_id;
 	}
@@ -84,5 +84,5 @@ namespace SOGL
 	Texture::operator unsigned()
 	{
 		return id();
-	}*/
+	}
 };

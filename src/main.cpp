@@ -128,6 +128,14 @@ int main(void)
 		prog.link();
 	}
 
+	SOGL::Framebuffer f;
+
+	f.attach(tex, SOGL::FramebufferAttachment::Color0);
+
+	if(f.prepare())
+		std::cout << "Yay!" << std::endl;
+	else 
+		std::cout << "=(" << std::endl;
 
 	while(!glfwWindowShouldClose(context))
 	{
