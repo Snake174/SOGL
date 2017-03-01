@@ -27,7 +27,7 @@ namespace SOGL
 
 	void VertexArray::attach_attribute(unsigned binding, int element_size, VertexBuffer& vbo, int size, ptrdiff_t offset, DataType type, bool normalized)
 	{
-		glDisableVertexArrayAttrib(m_id, binding);
+		glEnableVertexArrayAttrib(m_id, binding);
 		glVertexArrayVertexAttribOffsetEXT(m_id, vbo, binding, size, remap(type), 
 										   normalized, element_size, offset);
 	}
