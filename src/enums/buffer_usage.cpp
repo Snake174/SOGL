@@ -1,4 +1,4 @@
-#include "buffer_usage.h"
+#include <enums/buffer_usage.h>
 #include <cassert>
 #include <GL/glew.h>
 

@@ -1,4 +1,4 @@
-#include "data_type.h"
+#include <enums/data_type.h>
 #include <cassert>
 #include <GL/glew.h>
 

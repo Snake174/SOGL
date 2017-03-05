@@ -1,4 +1,4 @@
-#include "texture_format.h"
+#include <enums/texture_format.h>
 #include <GL/glew.h>
 #include <cassert>
 

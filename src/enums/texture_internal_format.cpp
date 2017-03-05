@@ -1,4 +1,4 @@
-#include "texture_internal_format.h"
+#include <enums/texture_internal_format.h>
 #include <GL/glew.h>
 #include <cassert>
 

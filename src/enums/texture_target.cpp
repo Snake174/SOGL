@@ -1,4 +1,4 @@
-#include "texture_target.h"
+#include <enums/texture_target.h>
 #include <cassert>
 #include <GL/glew.h>
 

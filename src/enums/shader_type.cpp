@@ -1,4 +1,4 @@
-#include "shader_type.h"
+#include <enums/shader_type.h>
 #include <cassert>
 #include <GL/glew.h>
 

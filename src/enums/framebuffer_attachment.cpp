@@ -1,4 +1,4 @@
-#include "framebuffer_attachment.h"
+#include <enums/framebuffer_attachment.h>
 #include <cassert>
 #include <GL/glew.h>
 
