@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned SOGL::remap(const TextureFormat format)
+	unsigned remap(const TextureFormat& format)
 	{
 		switch(format)
 		{
@@ -28,7 +28,7 @@ namespace SOGL
 			case TextureFormat::RGBAInteger: return GL_RGBA_INTEGER;
 			case TextureFormat::BGRAInteger: return GL_BGRA_INTEGER;
 			default:
-				break;
+				assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

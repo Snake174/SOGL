@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned remap(const TextureInternalFormat format)
+	unsigned remap(const TextureInternalFormat& format)
 	{
 		switch(format)
 		{

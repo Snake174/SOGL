@@ -15,5 +15,5 @@ namespace SOGL
 		DynamicCopy,
 	};
 
-	unsigned remap(const BufferUsage usage);
+	unsigned remap(const BufferUsage& usage);
 };

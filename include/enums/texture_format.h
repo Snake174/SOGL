@@ -25,5 +25,5 @@ namespace SOGL
 		BGRAInteger
 	};
 
-	unsigned remap(const TextureFormat format);
+	unsigned remap(const TextureFormat& format);
 };

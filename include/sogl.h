@@ -6,5 +6,6 @@
 #include "texture.h"
 #include "framebuffer.h"
 #include "context.h"
+#include "window.h"
 
 #define GLSL(version, shader)  "#version " #version "\n" #shader

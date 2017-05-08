@@ -1,4 +1,5 @@
 #pragma once
+#include "enums/primitive_type.h"
 
 typedef struct GLFWwindow GLFWwindow; //"YUCK!", yeah..
 
@@ -6,8 +7,14 @@ namespace SOGL
 {
 	struct ContextSettings
 	{
-		ContextSettings(unsigned depth = 0, unsigned stencil = 0, unsigned antialiasing = 0, 
-						unsigned major = 4, unsigned minor = 0);
+		ContextSettings
+		(
+			unsigned depth = 0,
+			unsigned stencil = 0,
+			unsigned antialiasing = 0, 
+			unsigned major = 4,
+			unsigned minor = 0
+		);
 
 		unsigned depth_bits;
 		unsigned stencil_bits;
@@ -31,6 +38,8 @@ namespace SOGL
 		Context(Context&);
 
 		const ContextSettings& settings();
+
+		void draw_arrays(const PrimitiveType& mode, int first, int count);
 
 		void bind();
 

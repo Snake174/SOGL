@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned remap(const ShaderType type)
+	unsigned remap(const ShaderType& type)
 	{
 		switch(type)
 		{

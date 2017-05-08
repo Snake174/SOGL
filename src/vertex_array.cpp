@@ -25,13 +25,18 @@ namespace SOGL
 		glVertexArrayElementBuffer(m_id, ebo);
 	}
 
-	void VertexArray::attach_attribute(unsigned binding, int element_size, VertexBuffer& vbo, int size, ptrdiff_t offset, DataType type, bool normalized)
+	void VertexArray::attach_attribute(unsigned binding, VertexBuffer& vbo, int size, int element_size, ptrdiff_t offset, DataType type, bool normalized)
 	{
 		glEnableVertexArrayAttrib(m_id, binding);
 		glVertexArrayVertexAttribOffsetEXT(m_id, vbo, binding, size, remap(type), 
 										   normalized, element_size, offset);
-	}
+		
+		/*glVertexAttribPointer(0, 3, type, normalized, 0, offset);
 
+		glVertexArrayVertexAttribOffsetEXT(m_id, vbo, 0, 3, remap(type), 
+										   normalized, 3, 0);*/
+	}
+	
 	void VertexArray::bind()
 	{
 		glBindVertexArray(m_id);

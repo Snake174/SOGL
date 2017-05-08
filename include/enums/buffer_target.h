@@ -20,5 +20,5 @@ namespace SOGL
 		Uniform,
 	};
 
-	unsigned remap(const BufferTarget target);
+	unsigned remap(const BufferTarget& target);
 };

@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned remap(const FramebufferAttachment attachment)
+	unsigned remap(const FramebufferAttachment& attachment)
 	{
 		switch(attachment)
 		{

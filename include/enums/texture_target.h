@@ -23,5 +23,5 @@ namespace SOGL
 		CubemapNegativeZ
 	};
 
-	unsigned remap(const TextureTarget target);
+	unsigned remap(const TextureTarget& target);
 };

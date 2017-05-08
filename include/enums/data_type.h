@@ -16,5 +16,5 @@ namespace SOGL
 		Double
 	};
 
-	unsigned remap(const DataType type);
+	unsigned remap(const DataType& type);
 };

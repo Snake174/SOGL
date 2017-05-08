@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned remap(const BufferUsage usage)
+	unsigned remap(const BufferUsage& usage)
 	{
 		switch(usage)
 		{

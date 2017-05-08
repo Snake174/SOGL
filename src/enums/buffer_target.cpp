@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned SOGL::remap(const BufferTarget target)
+	unsigned SOGL::remap(const BufferTarget& target)
 	{
 		switch(target)
 		{

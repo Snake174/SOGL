@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned remap(const DataType type)
+	unsigned remap(const DataType& type)
 	{
 		switch(type)
 		{

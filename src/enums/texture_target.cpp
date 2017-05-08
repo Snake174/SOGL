@@ -4,7 +4,7 @@
 
 namespace SOGL
 {
-	unsigned remap(const TextureTarget target)
+	unsigned remap(const TextureTarget& target)
 	{
 		switch(target)
 		{

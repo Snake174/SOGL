@@ -12,5 +12,5 @@ namespace SOGL
 		Compute
 	};
 
-	unsigned remap(const ShaderType type);
+	unsigned remap(const ShaderType& type);
 };

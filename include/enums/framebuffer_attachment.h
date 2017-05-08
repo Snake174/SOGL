@@ -20,5 +20,5 @@ namespace SOGL
 
 	const int MaxColorAttachment = 8;
 
-	unsigned remap(const FramebufferAttachment attachment);
+	unsigned remap(const FramebufferAttachment& attachment);
 };
