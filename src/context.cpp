@@ -62,6 +62,11 @@ namespace SOGL
 	Context::Context(const ContextSettings& settings)
 	{
 		assert(glfwInit());
+		
+		static int at_exit = -1;
+
+		if(at_exit != 0)
+			at_exit = std::atexit([] { glfwTerminate(); });
 
 		set_settings(settings);
 		assert(m_handle = glfwCreateWindow(1, 1, "", nullptr, nullptr));
@@ -94,11 +99,6 @@ namespace SOGL
 
 	Context::Context(Context& o)
 	{
-		static int at_exit = -1;
-
-		if(at_exit != 0)
-			at_exit = std::atexit([] { glfwTerminate(); });
-
 		set_settings(o.settings());
 
 		assert(m_handle = glfwCreateWindow(1, 1, "", nullptr, o.m_handle));

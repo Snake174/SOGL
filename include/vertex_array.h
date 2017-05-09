@@ -18,8 +18,16 @@ namespace SOGL
 
 		void attach_ebo(VertexBuffer& ebo);
 
-		void attach_attribute(unsigned binding, VertexBuffer& vbo, int size, int element_size = 0, ptrdiff_t offset = 0,
-							  DataType type = DataType::Float, bool normalized = false);
+		void attach_attribute
+		(
+			unsigned binding, 
+			VertexBuffer& vbo, 
+			int size, 
+			int element_size = 0, 
+			ptrdiff_t offset = 0,
+			DataType type = DataType::Float, 
+			bool normalized = false
+		);
 
 		void bind();
 

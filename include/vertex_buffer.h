@@ -15,9 +15,18 @@ namespace SOGL
 
 		VertexBuffer(VertexBuffer&) = delete;
 
-		void allocate(unsigned count, BufferUsage usage = BufferUsage::StaticDraw);
+		void allocate
+		(
+			unsigned count, 
+			BufferUsage usage = BufferUsage::StaticDraw
+		);
 
-		void allocate(const void* data, unsigned count, BufferUsage usage = BufferUsage::StaticDraw);
+		void allocate
+		(
+			const void* data, 
+			unsigned count, 
+			BufferUsage usage = BufferUsage::StaticDraw
+		);
 
 		void bind(BufferTarget target = BufferTarget::Array);
 

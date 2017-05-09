@@ -19,8 +19,12 @@ namespace SOGL
 
 		operator unsigned();
 
-		void attach(Texture& texture, FramebufferAttachment attachment, 
-					int level = 0);
+		void attach
+		(
+			Texture& texture, 
+			FramebufferAttachment attachment, 
+			int level = 0
+		);
 
 		bool check();
 
