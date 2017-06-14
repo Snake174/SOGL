@@ -23,8 +23,12 @@ namespace SOGL
 
 		glTextureImage2DEXT(m_id, remap(m_target), 0, GL_RGB, 
 							w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-		glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+		//glTexParameterf(target, pname, param);
+		//glTextureParameterf(texture, pname, param);
+		glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		make_mipmaps();
 
 		stbi_image_free(data);
 	}

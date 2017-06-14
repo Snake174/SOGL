@@ -21,6 +21,24 @@ namespace SOGL
 		o.m_id = 0;
 	}
 
+	void ShaderProgram::set_uniform(const char* name, float v)
+	{
+		auto loc = glGetUniformLocation(*this, name);
+		glUniform1f(loc, v);
+	}
+
+	void ShaderProgram::set_uniform(const char* name, int v)
+	{
+		auto loc = glGetUniformLocation(*this, name);
+		glUniform1i(loc, v);
+	}
+
+	void ShaderProgram::set_uniform(const char* name, glm::mat4 v)
+	{
+		auto loc = glGetUniformLocation(*this, name);
+		glUniformMatrix4fv(loc, 1, GL_FALSE, &v[0][0]);
+	}
+
 	void ShaderProgram::attach(Shader& shader)
 	{
 		glAttachShader(m_id, shader);

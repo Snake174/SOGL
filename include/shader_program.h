@@ -1,5 +1,6 @@
 #pragma once
 #include "shader.h"
+#include <glm.hpp>
 
 namespace SOGL
 {
@@ -13,6 +14,12 @@ namespace SOGL
 		ShaderProgram(ShaderProgram&&);
 
 		ShaderProgram(ShaderProgram&) = delete;
+
+		void set_uniform(const char* name, float v);
+
+		void set_uniform(const char* name, int v);
+
+		void set_uniform(const char* name, glm::mat4 v);
 
 		void attach(Shader& shader);
 

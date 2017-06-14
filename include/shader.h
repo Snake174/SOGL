@@ -17,7 +17,7 @@ namespace SOGL
 		ShaderType type();
 
 		unsigned id();
-
+		
 		operator unsigned();
 	private:
 		unsigned m_id;

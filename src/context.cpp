@@ -75,6 +75,7 @@ namespace SOGL
 		glewExperimental = true;
 		assert(glewInit() == GLEW_OK);
 
+		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_DEBUG_OUTPUT);
 		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS); 
 		glDebugMessageCallback(glDebugOutput, nullptr);
