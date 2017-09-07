@@ -21,6 +21,7 @@ namespace SOGL
 		unsigned char* data = stbi_load(filename, &w, &h, &n, 3);
 		assert(data != nullptr);
 
+		glCreateTextures(remap(m_target), 1, &m_id);
 		glTextureImage2DEXT(m_id, remap(m_target), 0, GL_RGB, 
 							w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 

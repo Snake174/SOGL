@@ -68,6 +68,8 @@ int main()
 
 	vao.bind();
 
+	w.set_clear_color({1, 1, 1, 1});
+
 	while(!w.should_close())
 	{
 		if(w.key(SOGL::Key::Escape))
