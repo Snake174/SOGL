@@ -45,11 +45,8 @@ int main()
 		{ 0.0f,  0.0f, 1.0f },
 	};
 
-	SOGL::VertexBuffer geometry;
-	geometry.allocate(triangle_verts, 3 * sizeof(glm::vec3));
-
-	SOGL::VertexBuffer colors;
-	colors.allocate(triangle_colors, 3 * sizeof(glm::vec3));
+	SOGL::VertexBuffer geometry(triangle_verts, 3 * sizeof(glm::vec3));
+	SOGL::VertexBuffer colors(triangle_colors, 3 * sizeof(glm::vec3));
 	
 	vao.attach_attribute(0, geometry, 3);
 	vao.attach_attribute(1, colors, 3);

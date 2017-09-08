@@ -20,6 +20,16 @@ namespace SOGL
 		o.m_id =  0;
 	}
 
+	VertexBuffer::VertexBuffer(unsigned count, BufferUsage usage): VertexBuffer()
+	{
+		allocate(count, usage);
+	}
+
+	VertexBuffer::VertexBuffer(const void* data, unsigned count, BufferUsage usage): VertexBuffer()
+	{
+		allocate(data, count, usage);
+	}
+
 	void VertexBuffer::allocate(unsigned count, BufferUsage usage)
 	{
 		glNamedBufferData(m_id, count, nullptr, remap(usage));

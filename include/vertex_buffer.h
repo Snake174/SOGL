@@ -7,6 +7,7 @@ namespace SOGL
 	class VertexBuffer
 	{
 	public:
+
 		VertexBuffer();
 
 		~VertexBuffer();
@@ -15,6 +16,18 @@ namespace SOGL
 
 		VertexBuffer(VertexBuffer&) = delete;
 
+		VertexBuffer
+		(
+			unsigned count,
+			BufferUsage usage = BufferUsage::StaticDraw
+		);
+
+		VertexBuffer
+		(
+			const void* data,
+			unsigned count,
+			BufferUsage usage = BufferUsage::StaticDraw
+		);
 		void allocate
 		(
 			unsigned count, 
