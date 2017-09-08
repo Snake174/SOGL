@@ -20,8 +20,8 @@ namespace SOGL
 			case PrimitiveType::TriangleStripAdjacency: return GL_TRIANGLE_STRIP_ADJACENCY;
 			case PrimitiveType::TrianglesAdjacency: return GL_TRIANGLES_ADJACENCY;
 			case PrimitiveType::Patches: return GL_PATCHES;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

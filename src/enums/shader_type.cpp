@@ -14,8 +14,8 @@ namespace SOGL
 			case ShaderType::Geometry: return GL_GEOMETRY_SHADER;
 			case ShaderType::Fragment: return GL_FRAGMENT_SHADER;
 			case ShaderType::Compute: return GL_COMPUTE_SHADER;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

@@ -22,8 +22,8 @@ namespace SOGL
 			case BufferTarget::Texture: return GL_TEXTURE_BUFFER;
 			case BufferTarget::TransformFeedback: return GL_TRANSFORM_FEEDBACK_BUFFER;
 			case BufferTarget::Uniform: return GL_UNIFORM_BUFFER;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

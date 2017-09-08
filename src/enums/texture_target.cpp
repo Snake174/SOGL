@@ -25,8 +25,8 @@ namespace SOGL
 			case TextureTarget::CubemapNegativeY: return GL_TEXTURE_CUBE_MAP_NEGATIVE_Y;
 			case TextureTarget::CubemapPositiveZ: return GL_TEXTURE_CUBE_MAP_POSITIVE_Z;
 			case TextureTarget::CubemapNegativeZ: return GL_TEXTURE_CUBE_MAP_NEGATIVE_Z;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

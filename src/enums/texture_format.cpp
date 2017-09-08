@@ -27,8 +27,8 @@ namespace SOGL
 			case TextureFormat::BGRInteger: return GL_BGR_INTEGER;
 			case TextureFormat::RGBAInteger: return GL_RGBA_INTEGER;
 			case TextureFormat::BGRAInteger: return GL_BGRA_INTEGER;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

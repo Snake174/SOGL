@@ -19,8 +19,8 @@ namespace SOGL
 			case FramebufferAttachment::Depth: return GL_DEPTH_ATTACHMENT;
 			case FramebufferAttachment::Stencil: return GL_STENCIL_ATTACHMENT;
 			case FramebufferAttachment::DepthStencil: return GL_DEPTH_STENCIL_ATTACHMENT;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		
 		return 0; //to avoid stupid C4715 warning

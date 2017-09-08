@@ -108,8 +108,8 @@ namespace SOGL
 			case TextureInternalFormat::CompressedSignedR11EAC: return GL_COMPRESSED_SIGNED_R11_EAC;
 			case TextureInternalFormat::CompressedRG11EAC: return GL_COMPRESSED_RG11_EAC;
 			case TextureInternalFormat::CompressedSignedRG11EAC: return GL_COMPRESSED_SIGNED_RG11_EAC;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 
 		return 0; //to avoid stupid C4715 warning

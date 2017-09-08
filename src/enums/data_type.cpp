@@ -18,8 +18,8 @@ namespace SOGL
 			case DataType::HalfFloat: return GL_HALF_FLOAT;
 			case DataType::Float: return GL_FLOAT;
 			case DataType::Double: return GL_DOUBLE;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}

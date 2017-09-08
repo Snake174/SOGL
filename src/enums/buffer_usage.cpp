@@ -17,8 +17,8 @@ namespace SOGL
 			case BufferUsage::DynamicDraw: return GL_DYNAMIC_DRAW;
 			case BufferUsage::DynamicRead: return GL_DYNAMIC_READ;
 			case BufferUsage::DynamicCopy: return GL_DYNAMIC_COPY;
-			default:
-				assert(false);
+		default:
+			assert(false);
 		}
 		return 0; //to avoid stupid C4715 warning
 	}
