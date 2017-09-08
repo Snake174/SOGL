@@ -40,16 +40,6 @@ namespace SOGL
 		return m_type;
 	}
 
-	unsigned Shader::id()
-	{
-		return m_id;
-	}
-
-	Shader::operator unsigned()
-	{
-		return id();
-	}
-
 	VertexShader::VertexShader(const char* source): 
 		Shader(ShaderType::Vertex, source)
 	{}

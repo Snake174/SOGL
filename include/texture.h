@@ -34,12 +34,10 @@ namespace SOGL
 		void bind(unsigned binding);
 
 		void unbind(unsigned binding);
-		
-		unsigned id();
-
-		operator unsigned();
 	private:
 		unsigned m_id;
 		TextureTarget m_target;
+
+		friend class Framebuffer;
 	};
 };

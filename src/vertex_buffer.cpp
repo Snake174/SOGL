@@ -39,14 +39,4 @@ namespace SOGL
 	{
 		glBindBuffer(remap(target), 0);
 	}
-
-	unsigned VertexBuffer::id()
-	{
-		return m_id;
-	}
-
-	VertexBuffer::operator unsigned()
-	{
-		return id();
-	}
 };

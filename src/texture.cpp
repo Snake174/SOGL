@@ -80,14 +80,4 @@ namespace SOGL
 		glActiveTexture(GL_TEXTURE0 + binding);
 		glBindTexture(remap(m_target), 0);
 	}
-
-	unsigned Texture::id()
-	{
-		return m_id;
-	}
-	
-	Texture::operator unsigned()
-	{
-		return id();
-	}
 };

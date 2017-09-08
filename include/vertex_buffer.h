@@ -31,11 +31,9 @@ namespace SOGL
 		void bind(BufferTarget target = BufferTarget::Array);
 
 		void unbind(BufferTarget target = BufferTarget::Array);
-
-		unsigned id();
-
-		operator unsigned();
 	private:
 		unsigned m_id;
+		
+		friend class VertexArray;
 	};
 };

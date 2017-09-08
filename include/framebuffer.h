@@ -15,10 +15,6 @@ namespace SOGL
 
 		Framebuffer(Framebuffer&) = delete;
 
-		unsigned id();
-
-		operator unsigned();
-
 		void attach
 		(
 			Texture& texture, 

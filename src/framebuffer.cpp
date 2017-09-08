@@ -21,20 +21,10 @@ namespace SOGL
 		o.m_id = 0;
 	}
 
-	unsigned Framebuffer::id()
-	{
-		return m_id;
-	}
-
-	Framebuffer::operator unsigned()
-	{
-		return id();
-	}
-
 	void Framebuffer::attach(Texture& texture, FramebufferAttachment attachment, 
 							 int level)
 	{
-		glNamedFramebufferTexture(m_id, remap(attachment), texture, level);
+		glNamedFramebufferTexture(m_id, remap(attachment), texture.m_id, level);
 	}
 
 	bool Framebuffer::check()

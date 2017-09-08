@@ -15,13 +15,11 @@ namespace SOGL
 		Shader(Shader&) = delete;
 
 		ShaderType type();
-
-		unsigned id();
-		
-		operator unsigned();
 	private:
 		unsigned m_id;
 		ShaderType m_type;
+
+		friend class ShaderProgram;
 	};
 
 	class VertexShader: public Shader

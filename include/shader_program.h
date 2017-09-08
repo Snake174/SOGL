@@ -28,10 +28,6 @@ namespace SOGL
 		void bind();
 
 		void unbind();
-
-		unsigned id();
-
-		operator unsigned();
 	private:
 		unsigned m_id;
 	};
