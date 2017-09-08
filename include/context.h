@@ -44,6 +44,10 @@ namespace SOGL
 
 		void disable(const Capability& capability);
 
+		bool is_enabled(const Capability& capability);
+
+		bool is_disabled(const Capability& capability);
+
 		void draw_arrays(const PrimitiveType& mode, int first, int count);
 
 		void bind();

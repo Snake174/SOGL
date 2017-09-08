@@ -124,6 +124,16 @@ namespace SOGL
 		glDisable(remap(capability));
 	}
 
+	bool Context::is_enabled(const Capability& capability)
+	{
+		return glIsEnabled(remap(capability));
+	}
+
+	bool Context::is_disabled(const Capability & capability)
+	{
+		return !is_enabled(capability);
+	}
+
 	void Context::draw_arrays(const PrimitiveType& mode, int first, int count)
 	{
 		glDrawArrays(remap(mode), first, count);
