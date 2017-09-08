@@ -47,7 +47,7 @@ namespace SOGL
 	bool ShaderProgram::link()
 	{
 		int success;
-		const unsigned log_length = 1024;
+		const GLsizei log_length = 1024;
 		static GLchar log[log_length];
 
 		glLinkProgram(m_id);
@@ -58,6 +58,14 @@ namespace SOGL
 			std::cerr << "SHADER PROGRAM LINKING ERROR\n" << log << std::endl;
 			return false;
 		}
+
+		const GLsizei max_shader_count = 256;
+		GLuint attached_shaders[max_shader_count]{};
+		GLsizei shader_count;
+		glGetAttachedShaders(m_id, max_shader_count, &shader_count, &attached_shaders[0]);
+
+		for (GLsizei i = 0; i < shader_count; ++i)
+			glDetachShader(m_id, attached_shaders[i]);
 
 		return true;
 	}
