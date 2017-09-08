@@ -144,11 +144,6 @@ namespace SOGL
 		return glfwGetCurrentContext() == m_handle;
 	}
 
-	Context::operator GLFWwindow*()
-	{
-		return m_handle;
-	}
-
 	void Context::set_settings(const ContextSettings& settings)
 	{
 		m_settings = settings;

@@ -51,12 +51,12 @@ namespace SOGL
 		void unbind();
 
 		bool is_active();
-
-		operator GLFWwindow*();
 	private:
 		void set_settings(const ContextSettings& settings);
 
 		GLFWwindow* m_handle;
 		ContextSettings m_settings;
+
+		friend class Window;
 	};
 };

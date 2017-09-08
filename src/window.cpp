@@ -11,17 +11,17 @@ namespace SOGL
 		assert(height > 0);
 
 
-		glfwSetWindowSize(m_context, width, height);
-		glfwSetWindowTitle(m_context, title);
-		glfwSetWindowUserPointer(m_context, this);
-		glfwSetKeyCallback(m_context, key_callback);
-		glfwSetScrollCallback(m_context, scroll_callback);
-		glfwSetMouseButtonCallback(m_context, mouse_button_callback);
+		glfwSetWindowSize(m_context.m_handle, width, height);
+		glfwSetWindowTitle(m_context.m_handle, title);
+		glfwSetWindowUserPointer(m_context.m_handle, this);
+		glfwSetKeyCallback(m_context.m_handle, key_callback);
+		glfwSetScrollCallback(m_context.m_handle, scroll_callback);
+		glfwSetMouseButtonCallback(m_context.m_handle, mouse_button_callback);
 
 		auto fb_size = framebuffer_size();
 		glViewport(0, 0, fb_size.x, fb_size.y);
 
-		glfwShowWindow(m_context);
+		glfwShowWindow(m_context.m_handle);
 	}
 
 	bool Window::key(const Key& key)
@@ -32,7 +32,7 @@ namespace SOGL
 	glm::vec2 Window::mouse_position()
 	{
 		double x, y;
-		glfwGetCursorPos(m_context, &x, &y);
+		glfwGetCursorPos(m_context.m_handle, &x, &y);
 		return glm::vec2((float)x, (float)y);
 	}
 
@@ -49,7 +49,7 @@ namespace SOGL
 	glm::ivec2 Window::framebuffer_size()
 	{
 		glm::ivec2 size;
-		glfwGetFramebufferSize(m_context, (int*)&size[0], (int*)&size[1]);
+		glfwGetFramebufferSize(m_context.m_handle, (int*)&size[0], (int*)&size[1]);
 		return size;
 	}
 
@@ -60,7 +60,7 @@ namespace SOGL
 
 	void Window::set_should_close(bool value)
 	{
-		glfwSetWindowShouldClose(m_context, value);
+		glfwSetWindowShouldClose(m_context.m_handle, value);
 	}
 
 	glm::vec4 Window::clear_color()
@@ -82,7 +82,7 @@ namespace SOGL
 
 	bool Window::should_close()
 	{
-		return !!glfwWindowShouldClose(m_context);
+		return !!glfwWindowShouldClose(m_context.m_handle);
 	}
 
 	void Window::update()
@@ -92,7 +92,7 @@ namespace SOGL
 
 	void Window::swap_buffers()
 	{
-		glfwSwapBuffers(m_context);
+		glfwSwapBuffers(m_context.m_handle);
 	}
 
 	void Window::clear()
