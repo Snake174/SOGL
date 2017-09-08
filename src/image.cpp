@@ -10,7 +10,11 @@ namespace SOGL
 		int n;
 
 		data = stbi_load(filename, &width, &height, &n, 3);
-		assert(data != nullptr);
+	}
+
+	bool Image::is_valid() const
+	{
+		return data != nullptr;
 	}
 
 	Image::~Image()

@@ -13,6 +13,8 @@ namespace SOGL
 
 	Texture::Texture(Image& image): m_target(TextureTarget::Texture2D)
 	{
+		assert(image.is_valid());
+
 		glCreateTextures(remap(m_target), 1, &m_id);
 
 		glTextureImage2DEXT(m_id, remap(m_target), 0, GL_RGB, image.width, image.height, 

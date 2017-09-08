@@ -9,6 +9,8 @@ namespace SOGL
 
 		Image(Image&) = delete;
 
+		bool is_valid() const;
+
 		~Image();
 	private:
 		int width, height;
