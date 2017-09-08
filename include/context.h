@@ -1,5 +1,6 @@
 #pragma once
 #include "enums/primitive_type.h"
+#include "enums/capability.h"
 
 typedef struct GLFWwindow GLFWwindow; //"YUCK!", yeah..
 
@@ -38,6 +39,10 @@ namespace SOGL
 		Context(Context&);
 
 		const ContextSettings& settings();
+
+		void enable(const Capability& capability);
+
+		void disable(const Capability& capability);
 
 		void draw_arrays(const PrimitiveType& mode, int first, int count);
 

@@ -75,9 +75,9 @@ namespace SOGL
 		glewExperimental = true;
 		assert(glewInit() == GLEW_OK);
 
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_DEBUG_OUTPUT);
-		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS); 
+		enable(Capability::DepthTest);
+		enable(Capability::DebugOutput);
+		enable(Capability::DebugOutputSynchronous);
 		glDebugMessageCallback(glDebugOutput, nullptr);
 		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 	}
@@ -112,6 +112,16 @@ namespace SOGL
 	const ContextSettings& Context::settings()
 	{
 		return m_settings;
+	}
+
+	void Context::enable(const Capability& capability)
+	{
+		glEnable(remap(capability));
+	}
+
+	void Context::disable(const Capability& capability)
+	{
+		glDisable(remap(capability));
 	}
 
 	void Context::draw_arrays(const PrimitiveType& mode, int first, int count)
