@@ -76,8 +76,7 @@ int main()
 	Window w(640, 480, "Mesh renderer", ContextSettings(24, 0, 8));
 	auto& c = w.context();
 
-	Texture tex("tex.jpg");
-	//tex.make_mipmaps();
+	Texture tex(Image("tex.jpg"));
 
 	VertexBuffer verts;
 	verts.allocate(v.data(), v.size() * sizeof(glm::vec3));

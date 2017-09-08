@@ -3,6 +3,7 @@
 #include "enums/texture_format.h"
 #include "enums/texture_internal_format.h"
 #include "enums/data_type.h"
+#include "image.h"
 
 namespace SOGL
 {
@@ -11,7 +12,7 @@ namespace SOGL
 	public:
 		Texture(TextureTarget target);
 
-		Texture(const char* filename);
+		Texture(Image& image);
 
 		~Texture();
 
