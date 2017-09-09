@@ -14,9 +14,6 @@ namespace SOGL
                             const GLchar *message, 
                             const void *userParam)
 {
-    // ignore non-significant error/warning codes
-    if(id == 131169 || id == 131185 || id == 131218 || id == 131204) return; 
-
     std::cout << "---------------" << std::endl;
     std::cout << "Debug message (" << id << "): " <<  message << std::endl;
 
@@ -74,12 +71,13 @@ namespace SOGL
 
 		glewExperimental = true;
 		assert(glewInit() == GLEW_OK);
-
+	
 		enable(Capability::DepthTest);
 		enable(Capability::DebugOutput);
 		enable(Capability::DebugOutputSynchronous);
-		glDebugMessageCallback(glDebugOutput, nullptr);
-		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+
+		glDebugMessageCallback(glDebugOutput, this);
+		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
 	}
 
 	Context::Context(unsigned depth, unsigned stencil, unsigned antialiasing, 

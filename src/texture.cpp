@@ -11,7 +11,7 @@ namespace SOGL
 		glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	}
 
-	Texture::Texture(Image& image): m_target(TextureTarget::Texture2D)
+	Texture::Texture(const Image& image): m_target(TextureTarget::Texture2D)
 	{
 		assert(image.is_valid());
 
@@ -20,8 +20,6 @@ namespace SOGL
 		glTextureImage2DEXT(m_id, remap(m_target), 0, GL_RGB, image.width, image.height, 
 			0, GL_RGB, GL_UNSIGNED_BYTE, image.data);
 
-		//glTexParameterf(target, pname, param);
-		//glTextureParameterf(texture, pname, param);
 		glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		make_mipmaps();

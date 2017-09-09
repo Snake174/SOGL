@@ -12,7 +12,7 @@ namespace SOGL
 	public:
 		Texture(TextureTarget target);
 
-		Texture(Image& image);
+		Texture(const Image& image);
 
 		~Texture();
 
