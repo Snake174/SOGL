@@ -6,7 +6,7 @@
 
 namespace SOGL
 {
-	static void APIENTRY glDebugOutput(GLenum source, 
+	static void APIENTRY debug_output(GLenum source, 
                             GLenum type, 
                             GLuint id, 
                             GLenum severity, 
@@ -76,7 +76,7 @@ namespace SOGL
 		set_enabled(Capability::DebugOutput);
 		set_enabled(Capability::DebugOutputSynchronous);
 
-		glDebugMessageCallback(glDebugOutput, this);
+		glDebugMessageCallback(debug_output, this);
 		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
 	}
 
