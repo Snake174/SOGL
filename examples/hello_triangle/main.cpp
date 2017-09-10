@@ -26,6 +26,8 @@ const char fragment_shader_src[] = GLSL
 
 int main()
 {
+	SOGL::SOGL_init();
+
 	SOGL::Window w(640, 480);
 	auto& context = w.context();
 
@@ -79,6 +81,8 @@ int main()
 		w.swap_buffers();
 		w.update();
 	}
+
+	SOGL::SOGL_release();
 
 	return 0;
 }

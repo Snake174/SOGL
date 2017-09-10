@@ -9,3 +9,10 @@
 #include "window.h"
 
 #define GLSL(version, shader)  "#version " #version "\n" #shader
+
+namespace SOGL
+{
+	bool SOGL_init();
+
+	void SOGL_release();
+};

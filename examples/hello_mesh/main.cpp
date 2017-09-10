@@ -73,6 +73,8 @@ int main()
 
 	using namespace SOGL;
 
+	SOGL_init();
+
 	Window w(640, 480, "Mesh renderer", ContextSettings(24, 0, 8));
 	auto& c = w.context();
 
@@ -172,6 +174,8 @@ int main()
 		w.swap_buffers();
 		w.update();
 	}
+
+	SOGL_release();
 
 	return 0;
 }
