@@ -40,9 +40,7 @@ namespace SOGL
 
 		const ContextSettings& settings();
 
-		void enable(const Capability& capability);
-
-		void disable(const Capability& capability);
+		void set_enabled(const Capability& capability, bool enabled = true);
 
 		bool is_enabled(const Capability& capability);
 

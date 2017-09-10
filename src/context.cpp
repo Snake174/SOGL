@@ -72,9 +72,9 @@ namespace SOGL
 		glewExperimental = true;
 		assert(glewInit() == GLEW_OK);
 	
-		enable(Capability::DepthTest);
-		enable(Capability::DebugOutput);
-		enable(Capability::DebugOutputSynchronous);
+		set_enabled(Capability::DepthTest);
+		set_enabled(Capability::DebugOutput);
+		set_enabled(Capability::DebugOutputSynchronous);
 
 		glDebugMessageCallback(glDebugOutput, this);
 		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
@@ -112,14 +112,12 @@ namespace SOGL
 		return m_settings;
 	}
 
-	void Context::enable(const Capability& capability)
+	void Context::set_enabled(const Capability& capability, bool enable)
 	{
-		glEnable(remap(capability));
-	}
-
-	void Context::disable(const Capability& capability)
-	{
-		glDisable(remap(capability));
+		if(enable)
+			glEnable(remap(capability));
+		else
+			glDisable(remap(capability));
 	}
 
 	bool Context::is_enabled(const Capability& capability)
